@@ -117,10 +117,14 @@ footer{border-top:1px solid var(--l);padding:26px 0 80px;text-align:center;color
 <p class="row">📍 Near Dera Amir Shah, PSO petrol pump, Jhang Road, Chiniot</p>
 <a class="btn o" href="https://www.google.com/maps/search/?api=1&query=PSO+petrol+pump+Jhang+Road+Chiniot" target="_blank" rel="noopener">Open in Google Maps</a></div>
 </div></div></section>
-
+<section style="padding-top:0"><div class="w"><h2>Rate us</h2><p class="sub">Tap a star and send your rating on WhatsApp.</p>
+<div class="card" style="text-align:center">
+<div id="stars" style="font-size:2.2rem;cursor:pointer;color:var(--g)"><span data-n="1">☆</span><span data-n="2">☆</span><span data-n="3">☆</span><span data-n="4">☆</span><span data-n="5">☆</span></div>
+<button class="btn wa" id="rate" type="button" style="margin-top:12px">Send rating on WhatsApp</button></div></div></section>
 <footer><div class="w">Chiniot Polish House · Near Dera Amir Shah, PSO petrol pump, Jhang Road, Chiniot<br>WhatsApp 0315-7486919 · Call 0321-6627361</div></footer>
 <a class="fab" href="https://wa.me/923157486919?text=Assalam%20o%20Alaikum" aria-label="WhatsApp us"><svg><use href="#wa"/></svg></a>
 <dialog id="dlg"><img alt=""><p></p></dialog>
+
 <script>
 var tabs=document.querySelectorAll(".tabs button"),figs=document.querySelectorAll("#gal figure");
 tabs.forEach(function(b){b.addEventListener("click",function(){tabs.forEach(function(x){x.classList.remove("on")});b.classList.add("on");
@@ -132,4 +136,8 @@ document.getElementById("send").addEventListener("click",function(){
 var n=document.getElementById("nm").value.trim(),i=document.getElementById("it").value,a=document.getElementById("ar").value.trim();
 var m="Assalam o Alaikum! I need a quote for: "+i+"."+(a?" Area: "+a+".":"")+(n?" Name: "+n+".":"");
 window.open("https://wa.me/923157486919?text="+encodeURIComponent(m),"_blank")});
+  var st=document.querySelectorAll("#stars span"),rv=0;
+st.forEach(function(s){s.addEventListener("click",function(){rv=+s.dataset.n;st.forEach(function(x){x.textContent=(+x.dataset.n<=rv)?"★":"☆"})})});
+document.getElementById("rate").addEventListener("click",function(){if(!rv){alert("Please tap a star first");return}
+window.open("https://wa.me/923157486919?text="+encodeURIComponent("Assalam o Alaikum! My rating for Chiniot Polish House: "+rv+"/5 stars."),"_blank")});
 </script></body></html>
